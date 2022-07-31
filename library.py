@@ -1,15 +1,22 @@
+# This code is not working or functional or tested, although that will change tonight or tomorrow. 
+# It's mostly here as demonstration; feel free to change things as you see fit
+
+
 import csv
 
 Class Library():
     def __init__(self):
 
         self.users = []
+        self.staff = []
         self.books = []
         self.audio = []
-        self.video = []
+        self.videos = []
     
-    def add_user(self):
-        if self.checkUser(name):
+
+    #not really something to implement in the interface, more to just showcase what everything will look like
+    def add_user(self, name):
+        if self.check_user(name):
             return False
 
         user = {
@@ -30,14 +37,77 @@ Class Library():
         return True
 
 
-    def check_user(self):
+    def check_user(self, name):
         for user in self.users:
             if user['name'].lower() == name.lower():
                 return True
         return False
+    
+    def check_book(self, name):
+        for book in self.books:
+            if book['name'].lower() == name.lower():
+                return True
+        return False
+
+    def check_audio(self, name):
+        for audio in self.audio:
+            if audio['name'].lower() == name.lower():
+                return True
+        return False
+
+    def check_video(self, name):
+        for video in self.videos:
+            if videos['name'].lower() == name.lower():
+                return True
+        return False
+    
+    def check_user_status(self, user):
+        if user["age"] <= 12:
+            if user["items_amount"] < 5:
+                return True
+            return False
+        return True
 
 
-    def checkout_book(self):
+    def check_book_status(self, book):
+        if book["checked_out"] == 'yes' and book["renewed"] == 'yes':
+            return False
+        
+        if book["reference"] == 'yes':
+            return False
+
+        else:
+            return True
+    
+    def check_audio_status(self, audio):
+
+    
+    def check_video_status(self, video):
+
+    
+    def request_book(self, book, user):
+        if self.check_book(book["name"]):
+            if self.check_book_status(book):
+                return True
+            return False
+        return False
+
+
+    def request_audio(self, audio, user):
+
+    
+    def request_video(self, video, user):
+
+
+    def checkout_book(self, book, user):
+        if self.check_book_status(book):
+            if self.check_user_status(user):
+                with open('user.csv', 'w') as csvfile:
+                    writer = csv.writer(csvfile)
+                    #edit csvs
+                return True
+            return False
+        return False
 
     
     def checkout_audio(self):

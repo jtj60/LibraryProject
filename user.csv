@@ -1,1 +1,3 @@
-Name:, Address:, Age:, Phone-Number:, Card-Number:, Checked-Out:, 
+Name:, Address:, Age:, Phone-Number:, Card-Number:, Checked-Out:, Items-Amount:
+
+Jake, 123 Python Way, 24, 999-123-4567, 9123456789, 'Book One, Book Two, Book Three', 3
