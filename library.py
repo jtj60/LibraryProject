@@ -21,10 +21,11 @@ class Library():
             return False
 
         user = User()
-        user.setUser(name,address,age,phone_number,card_number,checked_out)
+        user.setUser(name,address,age,phone_number,card_number,checked_out,password) #need password to add new user!!
         
         self.users.append(user)
 
+        # NEED TO UPDATE CSV TO HOLD PASSWORD OR NEED SEPERATE DB
         with open('user.csv', 'w') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([user.name, user.address, user.age, user.phone_number, user.card_number, user.checked_out])
