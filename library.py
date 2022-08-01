@@ -21,10 +21,11 @@ class Library():
             return False
 
         user = User()
-        user.setUser(name,address,age,phone_number,card_number,checked_out)
+        user.setUser(name,address,age,phone_number,card_number,checked_out,password) #need password to add new user!!
         
         self.users.append(user)
 
+        # NEED TO UPDATE CSV TO HOLD PASSWORD OR NEED SEPERATE DB
         with open('user.csv', 'w') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([user.name, user.address, user.age, user.phone_number, user.card_number, user.checked_out])
@@ -190,15 +191,13 @@ class Library():
 
 
     # log-in methods for interface 
-    def log_in(self, card_number, password):
-        if self.authenticate(card_number, password):
-            return True
+    def log_in(self, user, password):
+        if user in self.users:
+            if self.authenticate(user, password):
+                return True
         return False
     
-    def authenticate(self, card_number, password):
-        for user in self.users:
-            if user['card_number'] == card_number:
-                if user['password'] == password:
-                    return True
-                return False
-            return False
+    def authenticate(self, user, password):
+        if user.password == password:
+            return True
+        return False

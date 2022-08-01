@@ -19,20 +19,25 @@ class Interface():
         tk.Label(self.root, text='Enter library card').pack()
         ent = tk.Entry(self.root)
         ent.pack()
-        enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent.get())).pack()
+        tk.Label(self.root, text='Enter password').pack()
+        pswd = tk.Entry(self.root)
+        pswd.pack()
+        enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent.get(), pswd.get())).pack()
 
-    def authenticate(self, entry):
+    def authenticate(self, entry, pswd):
         # check if card number in system
         card_number = entry
         user = self.library.get_user(card_number)
 
         # loggin if user exists
-        if user:
+        if self.library.log_in(user, pswd):
             self.user = user
-            if self.library.log_in(card_number):
-                self.main_menu()
+            self.main_menu()
+
         else:
             print('Credientials failed to authenticate.')
+            for u in self.library.users:
+                print(u)
 
     def logout(self):
         self.clear()
@@ -42,6 +47,7 @@ class Interface():
 
     def main_menu(self):
         self.clear()
+        tk.Label(self.root, text=f'Welcome, {self.user.name}!').pack(ipadx=10, ipady=10)
         #checkout book
         checkout_book_but = tk.Button(self.root, text='CHECKOUT BOOK', command=self.book_request).pack(ipadx=10, ipady=10)
         #checkout video
@@ -110,8 +116,8 @@ class Interface():
 def main():
     lib = Interface()
     user = User()
-    #setUser(self, name, addr, age, phone, card, items
-    user.setUser('Trusted Member', 'Home', 22, 911, '123', ['Moby Dick', 'The Incredibles'])
+    #setUser(self, name, addr, age, phone, card, items, pswd
+    user.setUser('Trusted Member', 'Home', 22, 911, '123', ['Moby Dick', 'The Incredibles'], "987")
     lib.library.users.append(user)
     lib.root.mainloop()
 if __name__ == '__main__':
