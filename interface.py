@@ -19,9 +19,12 @@ class Interface():
         tk.Label(self.root, text='Enter library card').pack()
         ent = tk.Entry(self.root)
         ent.pack()
-        enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent.get())).pack()
+        tk.Label(self.root, text='Enter password').pack()
+        pswd = tk.Entry(self.root)
+        pswd.pack()
+        enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent.get(), pswd.get())).pack()
 
-    def authenticate(self, entry):
+    def authenticate(self, entry, pswd):
         # check if card number in system
         card_number = entry
         user = self.library.get_user(card_number)
@@ -29,7 +32,7 @@ class Interface():
         # loggin if user exists
         if user:
             self.user = user
-            if self.library.log_in(card_number):
+            if self.library.log_in(card_number, pswd):
                 self.main_menu()
         else:
             print('Credientials failed to authenticate.')
