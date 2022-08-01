@@ -6,13 +6,14 @@ class Interface():
     root.title('Library App')
     root.geometry('700x400')
     library = None
-    def __init__():
+    def __init__(self):
         library = Library()
         self.start()
 
     def start(self):
         labl = tk.Label(self.root, text='Enter library card').pack()
-        ent = tk.Entry(self.root).pack()
+        ent = tk.Entry(self.root)
+        ent.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent)).pack()
 
     def authenticate(self, entry):
@@ -32,3 +33,9 @@ class Interface():
         else:
             print('Failure...')
             #etc....
+
+def main():
+    lib = Interface()
+    lib.root.mainloop()
+if __name__ == '__main__':
+    main()
