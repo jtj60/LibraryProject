@@ -4,7 +4,7 @@
 
 import csv
 
-Class Library():
+class Library():
     def __init__(self):
 
         self.users = []
@@ -80,9 +80,11 @@ Class Library():
             return True
     
     def check_audio_status(self, audio):
+        pass
 
     
     def check_video_status(self, video):
+        pass
 
     
     def request_book(self, book, user):
@@ -94,9 +96,11 @@ Class Library():
 
 
     def request_audio(self, audio, user):
+        pass
 
     
     def request_video(self, video, user):
+        pass
 
 
     def checkout_book(self, book, user):
@@ -111,8 +115,10 @@ Class Library():
 
     
     def checkout_audio(self):
+        pass
 
     
     def checkout_video(self):
+        pass
 
     
