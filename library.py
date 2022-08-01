@@ -4,6 +4,8 @@
 
 import csv
 from user import User
+from library_util import Utilities
+
 
 class Library():
     def __init__(self):
@@ -13,7 +15,14 @@ class Library():
         self.books = []
         self.audio = []
         self.videos = []
-    
+        self.setUsers()
+
+        for u in self.users:
+            print(u)
+
+    def setUsers(self):
+        self.users = Utilities.getUsers('user.csv')
+
 
     #not really something to implement in the interface, more to just showcase what everything will look like
     def add_user(self, name):

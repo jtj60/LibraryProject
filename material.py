@@ -55,4 +55,5 @@ def main():
 	vd.checkout()
 	vd.renew()
 
-main()
+if __name__ == '__main__':
+	main()
