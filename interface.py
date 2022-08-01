@@ -1,4 +1,5 @@
 from library import Library
+from user import User
 import tkinter as tk
 
 class Interface():
@@ -12,9 +13,6 @@ class Interface():
         self.logged_in = False
         self.user = None
         self.start()
-
-        self.library.users.append({"card-number": '123',
-            "checked-out":"Moby Dick"})
 
     def start(self):
         # get user's library card number
@@ -104,6 +102,10 @@ class Interface():
 
 def main():
     lib = Interface()
+    user = User()
+    #setUser(self, name, addr, age, phone, card, items
+    user.setUser('Trusted Member', 'Home', 22, 911, '123', ['Moby Dick', 'The Incredibles'])
+    lib.library.users.append(user)
     lib.root.mainloop()
 if __name__ == '__main__':
     main()
