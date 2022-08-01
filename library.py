@@ -36,6 +36,11 @@ class Library():
 
         return True
 
+    def get_user(self, card_number):
+        for user in self.users:
+            if user['card-number'] == card_number:
+                return user
+        return None
 
     def check_user(self, name):
         for user in self.users:

@@ -6,18 +6,31 @@ class Interface():
     root.title('Library App')
     root.geometry('700x400')
     library = None
+    
+
     def __init__(self):
-        library = Library()
+        self.library = Library()
+        self.logged_in = False
+        self.user = None
         self.start()
 
     def start(self):
+        # get user's library card number
         labl = tk.Label(self.root, text='Enter library card').pack()
         ent = tk.Entry(self.root)
         ent.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent)).pack()
 
     def authenticate(self, entry):
-        print(entry.get())
+        # check if card number in system
+        card_number = entry.get()
+        user = self.library.get_user(card_number)
+
+        # loggin if user exists
+        if user:
+            self.user = user
+            self.logged_in = True
+            self.main_menu()
 
 
     def main_menu(self):
