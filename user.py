@@ -52,5 +52,7 @@ def main():
 	user = User()
 	user.setUser('alex','home','22', '972....', '123', None)
 	print(user)
+	user.setCheckedOut('a book')
+	print(user)
 if __name__ == '__main__':
 	main()
