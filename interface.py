@@ -31,10 +31,10 @@ class Interface():
         # loggin if user exists
         if user:
             self.user = user
-            self.logged_in = True
-            self.main_menu()
+            if self.library.log_in(card_number)
+                self.main_menu()
         else:
-            print('USER DOESNT EXIST IN DB')
+            print('Credientials failed to authenticate.')
 
     def logout(self):
         self.clear()

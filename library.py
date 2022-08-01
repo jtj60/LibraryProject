@@ -130,4 +130,16 @@ class Library():
     def checkout_video(self):
         pass
 
+
+    def log_in(self, card_number, password):
+        if self.authenticate(card_number, password):
+            return True
+        return False
     
+    def authenticate(self, card_number, password):
+        for user in self.users:
+            if user['card_number'] == card_number:
+                if user['password'] == password:
+                    return True
+                return False
+            return False
