@@ -48,7 +48,7 @@ class Interface():
     def main_menu(self):
         self.clear()
         #checkout book
-        checkout_book_but = tk.Button(self.root, text='CHECKOUT BOOK').pack(ipadx=10, ipady=10)
+        checkout_book_but = tk.Button(self.root, text='CHECKOUT BOOK', command=self.book_request).pack(ipadx=10, ipady=10)
         #checkout video
         checkout_video_but = tk.Button(self.root, text='CHECKOUT VIDEO').pack(ipadx=10, ipady=10)
         #check items
@@ -56,14 +56,20 @@ class Interface():
         #exit
         quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
     
-    def book_request(self, user):
-        name = input('which book would you like to request?')
-        #get user answer
+    def book_request(self):
+        self.clear()
+        input_labl = tk.Label(self.root, text='which book would you like to request?').pack()
+        book_input = tk.Entry(self.root)
+        book_input.pack()
+        enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_book(book_input.get(), self.user))).pack()
+        
 
-        if self.library.checkout_book( name, user):
-            print(f'Success!! You have checked out {name}!')
+    def request_ack(self, status):
+
+        if status:
+            print(f'Success!! You have checked out the item!')
         else:
-            print('Failure...')
+            print('Failure... Try again')
             #etc....
 
     def clear(self):
