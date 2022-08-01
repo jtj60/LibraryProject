@@ -14,11 +14,11 @@ class Interface():
         self.start()
 
         self.library.users.append({"card-number": '123',
-            "checked-out": "moby dick"})
+            "checked-out":"Moby Dick"})
 
     def start(self):
         # get user's library card number
-        card_labl = tk.Label(self.root, text='Enter library card').pack()
+        tk.Label(self.root, text='Enter library card').pack()
         ent = tk.Entry(self.root)
         ent.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent.get())).pack()
@@ -55,7 +55,7 @@ class Interface():
     
     def book_request(self):
         self.clear()
-        input_labl = tk.Label(self.root, text='which book would you like to request?').pack()
+        tk.Label(self.root, text='which book would you like to request?').pack()
         book_input = tk.Entry(self.root)
         book_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.printt(book_input.get(), self.user))).pack()
@@ -63,7 +63,7 @@ class Interface():
 
     def video_request(self):
         self.clear()
-        input_labl = tk.Label(self.root, text='which video would you like to request?').pack()
+        tk.Label(self.root, text='which video would you like to request?').pack()
         video_input = tk.Entry(self.root)
         video_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_video(video_input.get(), self.user))).pack()
@@ -75,8 +75,10 @@ class Interface():
             request_ack(0)
         else:
             items = self.library.get_user_checked_out(self.user)
-            #items = ['mody dick', 'stranger things', 'gaurdians of the galaxy']
-            labls = [tk.Label(self.root, text=item).pack() for item in items] if type(items) == list else tk.Label(self.root, text=items).pack()
+            if items:
+                labls = [tk.Label(self.root, text=item).pack() for item in items] if type(items) == list else tk.Label(self.root, text=items).pack()
+            else:
+                tk.Label(self.root, text="No items currently checked out...").pack()
             cont = tk.Button(self.root, text="CONTINUE", command = self.main_menu).pack(ipadx=10, ipady=10)
             quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
 
@@ -87,7 +89,7 @@ class Interface():
         else:
             msg = 'ERROR... Try again'
         
-        ack = tk.Label(self.root, text=msg).pack()
+        tk.Label(self.root, text=msg).pack()
         cont = tk.Button(self.root, text="CONTINUE", command = self.main_menu).pack(ipadx=10, ipady=10)
         quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
 
