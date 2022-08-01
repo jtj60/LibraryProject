@@ -42,6 +42,10 @@ class Library():
                 return user
         return None
 
+    def get_user_checked_out(self, user):
+        # can be changed to desired output... must return either str or list
+        return user['checked-out']
+
     def check_user(self, name):
         for user in self.users:
             if user['name'].lower() == name.lower():
