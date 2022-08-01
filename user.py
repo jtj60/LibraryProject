@@ -9,6 +9,7 @@ class  User:
 		self.card_number = "N/A"
 		self.checked_out = []
 		self.password = 0
+		self.max_items = 12
 
 	def setUser(self, name, addr, age, phone, card, items, pswd):
 		self.setName(name)
