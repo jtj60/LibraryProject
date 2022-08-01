@@ -27,7 +27,6 @@ class BestSeller(Book):
 	rental_time = 14
 	def __init__(self):
 		super().__init__()
-		#self.retal_time = retal_time
 
 class Video(Material):
 	rental_time = 14
@@ -35,6 +34,7 @@ class Video(Material):
 		super().__init__()
 	def checkout(self):
 		super().checkout(self.rental_time)
+
 class Audio(Video):
 	def __init__(self):
 		super().__init__()
