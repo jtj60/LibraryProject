@@ -10,6 +10,7 @@ class  User:
 		self.checked_out = []
 		self.password = 0
 		self.max_items = 12
+		self.checked_out = 0
 
 	def setUser(self, name, addr, age, phone, card, items, pswd):
 		self.setName(name)
@@ -19,6 +20,7 @@ class  User:
 		self.setCardNumber(card)
 		self.setCheckedOut(items)
 		self.setPassword(pswd)
+		self.checked_out = self.getNumCheckedOut()
 	def setName(self, n):
 		self.name = n
 	def setAddress(self, addr):
@@ -51,6 +53,10 @@ class  User:
 		return checked_out
 	def __str__(self):
 		return f'Name: {self.name} Address: {self.address} Age: {self.age} Phone: {self.phone_number} CID: {self.card_number} Borrowing: {self.checked_out}, Pswd: {self.password}'
+	def getNumCheckedOut(self):
+		if self.checked_out[0] = None:
+			return 0
+		return len(self.checked_out)
 
 
 def main():
