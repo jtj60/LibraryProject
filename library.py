@@ -3,6 +3,7 @@
 
 
 import csv
+from user import User
 
 class Library():
     def __init__(self):
@@ -19,14 +20,9 @@ class Library():
         if self.check_user(name):
             return False
 
-        user = {
-            "name": name,
-            "address": address,
-            "age": age,
-            "phone-number": phone_number,
-            "card-number": card_number,
-            "checked-out": checked_out,
-        }
+        user = User()
+        user.setUser(name,address,age,phone_number,card_number,checked_out)
+        
         self.users.append(user)
 
         with open('user.csv', 'w') as csvfile:
@@ -41,7 +37,7 @@ class Library():
     #Getter helper functions
     def get_user(self, card_number):
         for user in self.users:
-            if user['card-number'] == card_number:
+            if user.card_number == card_number:
                 return user
         return None
     
@@ -68,14 +64,14 @@ class Library():
     #returns materials checked out by the user
     def get_user_checked_out(self, user):
         # can be changed to desired output... must return either str or list
-        return user['checked-out']
+        return user.getCheckedOut()
 
 
 
     #helper functions to check if objects exsist 
     def check_user(self, name):
         for user in self.users:
-            if user['name'].lower() == name.lower():
+            if user.name.lower() == name.lower():
                 return True
         return False
     
