@@ -38,6 +38,12 @@ class  User:
 				self.checked_out.append(item)
 		else:
 			self.checked_out.append(items)
+	def getCheckedOut(self):
+		checked_out = None
+		if self.checked_out:
+			if self.checked_out[0] != None:
+				checked_out = self.checked_out
+		return checked_out
 	def __str__(self):
 		return f'Name: {self.name} Address: {self.address} Age: {self.age} Phone: {self.phone_number} CID: {self.card_number} Borrowing: {self.checked_out}'
 
