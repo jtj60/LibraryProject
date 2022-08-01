@@ -36,16 +36,43 @@ class Library():
 
         return True
 
+
+
+    #Getter helper functions
     def get_user(self, card_number):
         for user in self.users:
             if user['card-number'] == card_number:
                 return user
         return None
+    
+    def get_book(self, name):
+        for book in self.books:
+            if book['name'] == name:
+                return book
+        return None
 
+    def get_audio(self, name):
+        for audio in self.audio:
+            if audio['name'] == name:
+                return audio
+        return None
+
+    def get_video(self, name):
+        for video in self.videos:
+            if video['name'] == name:
+                return video
+        return None
+
+
+
+    #returns materials checked out by the user
     def get_user_checked_out(self, user):
         # can be changed to desired output... must return either str or list
         return user['checked-out']
 
+
+
+    #helper functions to check if objects exsist 
     def check_user(self, name):
         for user in self.users:
             if user['name'].lower() == name.lower():
@@ -70,6 +97,9 @@ class Library():
                 return True
         return False
     
+
+
+    # checks user age for the under-12 requirement
     def check_user_status(self, user):
         if user["age"] <= 12:
             if user["items_amount"] < 5:
@@ -78,24 +108,35 @@ class Library():
         return True
 
 
-    def check_book_status(self, book):
+
+    # Helper functions to check material statuses 
+    def check_book_status(self, name):
         if book["checked_out"] == 'yes' and book["renewed"] == 'yes':
             return False
-        
         if book["reference"] == 'yes':
             return False
-
         else:
             return True
     
     def check_audio_status(self, audio):
-        pass
-
+        if audio["checked_out"] == 'yes' and audio["renewed"] == 'yes':
+            return False
+        if audio["reference"] == 'yes':
+            return False
+        else:
+            return True
     
     def check_video_status(self, video):
-        pass
+        if video["checked_out"] == 'yes' and video["renewed"] == 'yes':
+            return False     
+        if video ["reference"] == 'yes':
+            return False
+        else:
+            return True
+
 
     
+    # material requests
     def request_book(self, book, user):
         if self.check_book(book["name"]):
             if self.check_book_status(book):
@@ -103,34 +144,56 @@ class Library():
             return False
         return False
 
-
     def request_audio(self, audio, user):
-        pass
-
-    
-    def request_video(self, video, user):
-        pass
-
-
-    def checkout_book(self, book, user):
-        if self.check_book_status(book):
-            if self.check_user_status(user):
-                with open('user.csv', 'w') as csvfile:
-                    writer = csv.writer(csvfile)
-                    #edit csvs
+        if self.check_audio(audio["name"]):
+            if self.check_audio_status(audio):
                 return True
             return False
         return False
 
+    def request_video(self, video, user):
+        if self.check_video(video["name"]):
+            if self.check_video_status(video):
+                return True
+            return False
+        return False
+
+
+
+    # functions for users to check out materials
+    def checkout_book(self, name, user):
+        if self.check_book_status(book):
+            if self.check_user_status(user):
+                self.update_user_checked_out_materials(user, book['name'])
+                return True
+            return False
+        return False
     
     def checkout_audio(self):
-        pass
-
+        if self.check_audio_status(book):
+            if self.check_user_status(user):
+                self.update_user_checked_out_materials(user, audio['name'])
+                return True
+            return False
+        return False
     
     def checkout_video(self):
+        if self.check_video_status(book):
+            if self.check_user_status(user):
+                self.update_user_checked_out_materials(user, video['name'])
+                return True
+            return False
+        return False
+
+
+
+    # updates user's checked out materials
+    def update_user_checked_out_materials(self, user, name):
         pass
 
 
+
+    # log-in methods for interface 
     def log_in(self, card_number, password):
         if self.authenticate(card_number, password):
             return True
