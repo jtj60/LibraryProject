@@ -66,6 +66,13 @@ class Interface():
         video_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_video(video_input.get(), self.user))).pack()
 
+    def audio_request(self):
+        self.clear()
+        tk.Label(self.root, text='which audio would you like to request?').pack()
+        audio_input = tk.Entry(self.root)
+        audio_input.pack()
+        enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_audio(audio_input.get(), self.user))).pack()
+
     def show_checked_out(self):
         self.clear()
         tk.Label(self.root, text='CURRENT CHECKED OUT ITEMS:').pack()
