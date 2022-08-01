@@ -29,7 +29,7 @@ class Interface():
         # loggin if user exists
         if user:
             self.user = user
-            if self.library.log_in(card_number)
+            if self.library.log_in(card_number):
                 self.main_menu()
         else:
             print('Credientials failed to authenticate.')
