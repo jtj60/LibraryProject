@@ -32,6 +32,8 @@ class  User:
 				age = float(age)
 			except:
 				age = 0
+		if age <= 12:
+			self.max_items = 5
 		self.age = age
 	def setPhoneNumber(self, num):
 		self.phone_number = num
