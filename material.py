@@ -81,6 +81,8 @@ class Video(Material):
 		self.duration = duration
 	def checkout(self):
 		super().checkout(self.rental_time)
+	def __str__(self):
+		return f'Title: {self.title} Duration: {self.duration} Rating: {self.rating} Available: {not self.checked_out}'
 
 class Audio(Video):
 	def __init__(self, title, genre, rating, duration, checked_out, renewed, returned):
