@@ -76,7 +76,7 @@ class Library():
 
     def get_video(self, name):
         for video in self.videos:
-            if video['name'] == name:
+            if video.title == name:
                 return video
         return None
 
@@ -187,15 +187,16 @@ class Library():
         audio = self.get_audio(audio)
         if audio and self.check_material_status(audio):
             if self.check_user_status(user):
-                self.update_user_checked_out_materials(user, audio['name'])
+                self.update_user_checked_out_materials(user, audio)
                 return True
             return False
         return False
     
-    def checkout_video(self):
-        if self.check_video_status(book):
+    def checkout_video(self, video, user):
+        video = self.get_video(video)
+        if self.check_material_status(video):
             if self.check_user_status(user):
-                self.update_user_checked_out_materials(user, video['name'])
+                self.update_user_checked_out_materials(user, video)
                 return True
             return False
         return False
