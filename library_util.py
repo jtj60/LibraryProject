@@ -5,7 +5,6 @@ from user import User
 class Utilities():
     def getUsers(filename):
         users = []
-        #fields = ['Name:',' Address:',' Age:', 'Phone Number:', 'Card Number:', 'Checked Out:', 'Items Amount:', 'Password:']
         with open(filename) as f:
             reader = csv.DictReader(f)
             for u in reader:
