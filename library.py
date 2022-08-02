@@ -169,10 +169,8 @@ class Library():
     # functions for users to check out materials
     def checkout_book(self, book, user):
         book = self.get_book(book)
-        if self.check_book_status(book):
-            print('here')
+        if book and self.check_book_status(book):
             if self.check_user_status(user):
-                print('here2')
                 self.update_user_checked_out_materials(user, book.title)
                 return True
             return False
