@@ -65,23 +65,23 @@ class Interface():
         self.clear()
         tk.Label(self.root, text='LIBRARY BOOKS:').pack()
         for book in self.library.getBooks():
-            tk.Label(self.root, text=str(book)).pack()
+            tk.Label(self.root, text=str(book), fg='red' if book.checked_out else 'green').pack()
         self.cont()
     def showBooksSmall(self):
         books = self.library.getBooks()
         names = [book.title for book in books if not book.checked_out]
         for name in names:
-            tk.Label(self.root, text=name).pack()
+            tk.Label(self.root, text=name, fg='green').pack()
     def showVideos(self):
         videos = self.library.getVideos()
         avail = [video for video in videos if not video.checked_out]
-        for video in avail:
-            tk.Label(self.root, text=str(video)).pack()
+        for video in videos:
+            tk.Label(self.root, text=str(video), fg='green' if video in avail else 'red').pack()
     def showAudio(self):
         audios = self.library.getAudio()
         avail = [audio for audio in audios if not audio.checked_out]
-        for audio in avail:
-            tk.Label(self.root, text=str(audio)).pack()
+        for audio in audios:
+            tk.Label(self.root, text=str(audio), fg='green' if audio in avail else 'red').pack()
     def showUser(self):
         self.clear()
         user = self.user
