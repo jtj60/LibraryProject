@@ -16,10 +16,14 @@ class Library():
         self.audio = []
         self.videos = []
         self.setUsers()
+        self.setBooks()
 
     def setUsers(self):
         self.users = Utilities.getUsers('user.csv')
-
+    def setBooks(self):
+        self.books = Utilities.getBooks('books.csv')
+    def getBooks(self):
+        return self.books
 
     #not really something to implement in the interface, more to just showcase what everything will look like
     def add_user(self, name):
@@ -50,7 +54,7 @@ class Library():
     
     def get_book(self, name):
         for book in self.books:
-            if book['name'] == name:
+            if book.title == name:
                 return book
         return None
 
@@ -76,9 +80,9 @@ class Library():
 
 
     #helper functions to check if objects exsist 
-    def check_user(self, name):
-        for user in self.users:
-            if user.name.lower() == name.lower():
+    def check_user(self, user):
+        if user in self.users:
+            if user.num_checked_out < user.max_items:
                 return True
         return False
     
@@ -104,19 +108,18 @@ class Library():
 
     # checks user age for the under-12 requirement
     def check_user_status(self, user):
-        if user["age"] <= 12:
-            if user["items_amount"] < 5:
-                return True
-            return False
-        return True
+        if user.max_items > user.num_checked_out:
+            return True
+        return Flase
 
 
 
     # Helper functions to check material statuses 
-    def check_book_status(self, name):
-        if book["checked_out"] == 'yes' and book["renewed"] == 'yes':
+    def check_book_status(self, book):
+        if book.checked_out and book.renewed:
+            print(book.checked_out())
             return False
-        if book["reference"] == 'yes':
+        if book.reference == 'yes':
             return False
         else:
             return True
@@ -164,10 +167,13 @@ class Library():
 
 
     # functions for users to check out materials
-    def checkout_book(self, name, user):
+    def checkout_book(self, book, user):
+        book = self.get_book(book)
         if self.check_book_status(book):
+            print('here')
             if self.check_user_status(user):
-                self.update_user_checked_out_materials(user, book['name'])
+                print('here2')
+                self.update_user_checked_out_materials(user, book.title)
                 return True
             return False
         return False

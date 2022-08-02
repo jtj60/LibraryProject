@@ -1,6 +1,6 @@
-Title, Author, Genre, Rating, Best Seller, Checked Out, Renewed, Reference, Returned
-
-The Great Gatsby, F. Scott Fitzgerald, Drama Fiction, Grade 10, Yes, No, No, No, Yes
+Title,Author,Genre,Rating,Best-Seller,Checked-Out,Renewed,Reference,Returned
+Greenlights, Mathew McConahey, Autobiography, Grade 5, False, False, False, False, False)
+The Great Gatsby, F. Scott Fitzgerald, Drama Fiction, Grade 10, No, No, No, No, Yes
 To Kill a Mockingbird, Harper Lee, Historical Fiction, Grade 9, Yes, Yes, Yes, No, No
 A Game of Thrones, George R.R. Martin, Fantasy Fiction, Grade 8, Yes, Yes, Yes, No, No
 Merriam Webster 10th Edition, Misc., Instructional Non-Fiction, Grade 3, No, No, No, Yes, Yes
@@ -8,5 +8,5 @@ Moby Dick, Herman Melville, Adventure Fiction, Grade 5, No, Yes, No, No, No
 Frankenstein, Mary Shelley, Horror Fiction, Grade 9, No, Yes, Yes, No, No
 Oliver Twist, Charles Dickens, Historical Fiction, Grade 8, No, No, No, No, Yes
 Lord of the Flies, William Golding, Young Adult Fiction, Grade 7, Yes, No, No, No, Yes
-Ender's Game, Orson Scott Card, Science-Fiction, Grade 7, Yes, Yes, Yes, No, No
+Ender's Game, Orson Scott Card, Science-Fiction, Grade 7, No, Yes, Yes, No, No
 Harry Potter, J.K. Rowling, Young Adult Fantasy Fiction, Grade 5, Yes, Yes, No, No No
