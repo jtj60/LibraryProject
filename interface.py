@@ -48,6 +48,8 @@ class Interface():
         tk.Label(self.root, text=f'Welcome, {self.user.name}!').pack(ipadx=10, ipady=10)
         #profile
         profile_but = tk.Button(self.root, text='PROFILE', command=self.showUser).pack(ipadx=10, ipady=10)
+        #see books
+        books_but = tk.Button(self.root, text='SHOW BOOKS', command=self.showBooks).pack(ipadx=10, ipady=10)
         #checkout book
         checkout_book_but = tk.Button(self.root, text='CHECKOUT BOOK', command=self.book_request).pack(ipadx=10, ipady=10)
         #checkout video
@@ -59,6 +61,12 @@ class Interface():
         #exit
         quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
     
+    def showBooks(self):
+        self.clear()
+        tk.Label(self.root, text='LIBRARY BOOKS:').pack()
+        for book in self.library.getBooks():
+            tk.Label(self.root, text=str(book)).pack()
+        self.cont()
     def showUser(self):
         self.clear()
         user = self.user

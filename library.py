@@ -16,10 +16,14 @@ class Library():
         self.audio = []
         self.videos = []
         self.setUsers()
+        self.setBooks()
 
     def setUsers(self):
         self.users = Utilities.getUsers('user.csv')
-
+    def setBooks(self):
+        self.books = Utilities.getBooks('books.csv')
+    def getBooks(self):
+        return self.books
 
     #not really something to implement in the interface, more to just showcase what everything will look like
     def add_user(self, name):

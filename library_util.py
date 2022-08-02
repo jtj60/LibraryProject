@@ -1,5 +1,6 @@
 import csv
 from user import User
+from material import Book
 
 
 class Utilities():
@@ -12,6 +13,15 @@ class Utilities():
                 user.setUser(u['Name'],u['Address'],u['Age'],u['Phone-Number'],u['Card-Number'],u['Checked-Out'], u['Password'])
                 users.append(user)
         return users
+
+    def getBooks(filename):
+        books =[]
+        with open(filename) as f:
+            reader = csv.DictReader(f)
+            for b in reader:
+                book = Book(b['Title'], b['Author'], b['Genre'], b['Rating'], b['Best-Seller'], b['Checked-Out'], b['Renewed'], b['Reference'], b['Returned'])
+                books.append(book)
+        return books
 
 
     def parse_user_list(filename):
