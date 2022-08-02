@@ -36,8 +36,6 @@ class Interface():
 
         else:
             print('Credientials failed to authenticate.')
-            for u in self.library.users:
-                print(u)
 
     def logout(self):
         self.clear()
@@ -54,6 +52,8 @@ class Interface():
         checkout_book_but = tk.Button(self.root, text='CHECKOUT BOOK', command=self.book_request).pack(ipadx=10, ipady=10)
         #checkout video
         checkout_video_but = tk.Button(self.root, text='CHECKOUT VIDEO', command=self.video_request).pack(ipadx=10, ipady=10)
+        #checkout audio
+        checkout_audio_but = tk.Button(self.root, text='CHECKOUT AUDIO', command=self.audio_request).pack(ipadx=10, ipady=10)
         #check items
         check_items = tk.Button(self.root, text='CHECK STATUS', command=self.show_checked_out).pack(ipadx=10, ipady=10)
         #exit
@@ -75,6 +75,7 @@ class Interface():
         book_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.printt(book_input.get(), self.user))).pack()
         #enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_book(book_input.get(), self.user))).pack()
+        self.cont()
 
     def video_request(self):
         self.clear()
@@ -82,6 +83,7 @@ class Interface():
         video_input = tk.Entry(self.root)
         video_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_video(video_input.get(), self.user))).pack()
+        self.cont()
 
     def audio_request(self):
         self.clear()
@@ -89,6 +91,7 @@ class Interface():
         audio_input = tk.Entry(self.root)
         audio_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_audio(audio_input.get(), self.user))).pack()
+        self.cont()
 
     def show_checked_out(self, clear=True):
         if clear:
@@ -102,8 +105,7 @@ class Interface():
                 labls = [tk.Label(self.root, text=item).pack() for item in items] if type(items) == list else tk.Label(self.root, text=items).pack()
             else:
                 tk.Label(self.root, text="No items currently checked out...").pack()
-            cont = tk.Button(self.root, text="CONTINUE", command = self.main_menu).pack(ipadx=10, ipady=10)
-            quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
+            self.cont()
 
     def request_ack(self, status):
         self.clear()
@@ -113,9 +115,12 @@ class Interface():
             msg = 'ERROR... Try again'
         
         tk.Label(self.root, text=msg).pack()
-        cont = tk.Button(self.root, text="CONTINUE", command = self.main_menu).pack(ipadx=10, ipady=10)
-        quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
+        self.cont()
+        
 
+    def cont(self):
+        cont = tk.Button(self.root, text="BACK", command = self.main_menu).pack(ipadx=10, ipady=10)
+        quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
 
     def clear(self):
         for widget in self.root.pack_slaves():
@@ -127,10 +132,6 @@ class Interface():
 
 def main():
     lib = Interface()
-    user = User()
-    #setUser(self, name, addr, age, phone, card, items, pswd
-    user.setUser('Trusted Member', 'Home', 22, 911, '123', ['Moby Dick', 'The Incredibles'], "987")
-    lib.library.users.append(user)
     lib.root.mainloop()
 if __name__ == '__main__':
     main()
