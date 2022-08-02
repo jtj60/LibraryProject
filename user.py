@@ -32,6 +32,7 @@ class  User:
 				age = float(age)
 			except:
 				age = 0
+		# check for age requirement
 		if age <= 12:
 			self.max_items = 5
 		self.age = age
