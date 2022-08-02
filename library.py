@@ -107,8 +107,8 @@ class Library():
 
     # checks user age for the under-12 requirement
     def check_user_status(self, user):
-        if user.age <= 12:
-            if user.max_items < 5:
+        if user["age"] <= 12:
+            if user["items_amount"] < 5:
                 return True
             return False
         return True
