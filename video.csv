@@ -1,12 +1,11 @@
-Title:, Genre:, Rating:, Duration:, Checked Out:, Renewed:, Returned:
-
-Up, Family, PG, 96, No, No, Yes
-The Lord of the Rings: The Return of the King, Fantasy, PG-13, 201, Yes, Yes, No
-Get Out, Horror, R, 104, Yes, No, No
-Avengers: Endgame, Superhero, PG-13, 182, No, No, No
-Harry Potter and the Goblet of Fire, Fantasy, PG-13, 157, No, No, Yes
-It, Horror, R, 135, Yes, Yes, No
-Saving Private Ryan, War, R, 169, No, No, No
-Cars, Family, G, 117, Yes, No, No
-John Wick, Action, R, 96, No, No, Yes
-Happy Gilmore, Comedy, PG-13, 93, Yes, Yes, No
+Title,Genre,Rating,Duration,Checked-Out,Renewed,Returned
+Up, Family, PG, 96,No,No,Yes
+The Lord of the Rings: The Return of the King, Fantasy, PG-13, 201,Yes,Yes,No
+Get Out, Horror, R, 104,Yes,No,No
+Avengers: Endgame, Superhero, PG-13, 182,No,No,No
+Harry Potter and the Goblet of Fire, Fantasy, PG-13, 157,No,No,Yes
+It, Horror, R, 135,Yes,Yes,No
+Saving Private Ryan, War, R, 169,No,No,No
+Cars, Family, G, 117,Yes,No,No
+John Wick, Action, R, 96,No,No,Yes
+Happy Gilmore, Comedy, PG-13, 93,YesYes,No
