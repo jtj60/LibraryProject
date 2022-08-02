@@ -72,9 +72,9 @@ class Book(Material):
 	def checkout(self):
 		super().checkout(self.rental_time)
 	def __str__(self):
-		string = f'Title: {self.title} Author: {self.author} Genre: {self.genre} Rating: {self.rating} Available: {str(not self.checked_out)}'
+		string = f'Title: {self.title} - Author: {self.author} - Genre: {self.genre} - Rating: {self.rating} - Available: {str(not self.checked_out)}'
 		if self.due_date != None:
-			string += ' Time: ' + str(self.due_date) + ' days'
+			string += ' - Time: ' + str(self.due_date) + ' days'
 		return string
 	
 class Video(Material):
@@ -88,9 +88,9 @@ class Video(Material):
 	def checkout(self):
 		super().checkout(self.rental_time)
 	def __str__(self):
-		string =  f'Title: {self.title} Duration: {self.duration} Rating: {self.rating} Available: {self.checked_out}'
+		string =  f'Title: {self.title} - Duration: {self.duration} - Rating: {self.rating} - Available: {self.checked_out}'
 		if self.due_date != None:
-			' Time: ' + str(self.due_date) + ' days'
+			' - Time: ' + str(self.due_date) + ' days'
 		return string
 
 class Audio(Video):
