@@ -48,6 +48,8 @@ class Interface():
     def main_menu(self):
         self.clear()
         tk.Label(self.root, text=f'Welcome, {self.user.name}!').pack(ipadx=10, ipady=10)
+        #profile
+        profile_but = tk.Button(self.root, text='PROFILE', command=self.showUser).pack(ipadx=10, ipady=10)
         #checkout book
         checkout_book_but = tk.Button(self.root, text='CHECKOUT BOOK', command=self.book_request).pack(ipadx=10, ipady=10)
         #checkout video
@@ -57,6 +59,15 @@ class Interface():
         #exit
         quit = tk.Button(self.root, text="EXIT", command=self.logout).pack(ipadx=10, ipady=10)
     
+    def showUser(self):
+        self.clear()
+        user = self.user
+        tk.Label(self.root, text=user.name).pack()
+        tk.Label(self.root, text='Address: '+ user.address).pack()
+        tk.Label(self.root, text = 'Age: '+str(user.age))
+        tk.Label(self.root, text='Phone: '+user.phone_number).pack()
+        self.show_checked_out(clear=False)
+            
     def book_request(self):
         self.clear()
         tk.Label(self.root, text='which book would you like to request?').pack()
@@ -79,8 +90,9 @@ class Interface():
         audio_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_audio(audio_input.get(), self.user))).pack()
 
-    def show_checked_out(self):
-        self.clear()
+    def show_checked_out(self, clear=True):
+        if clear:
+            self.clear()
         tk.Label(self.root, text='CURRENT CHECKED OUT ITEMS:').pack()
         if not self.user:
             request_ack(0)

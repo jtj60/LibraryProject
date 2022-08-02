@@ -1,9 +1,9 @@
 Name,Address,Age,Phone-Number,Card-Number,Checked-Out,Password
 
-Jake, 123 Python Way, 24, 999-123-4567, 9123456789, 'Book One, Book Two, Book Three', 3
-Liam,426 Kingston Rd.,32,312-533-1293,610671,None,7567
+Jake, 123 Python Way,24,999-123-4567,9123456789, Book One-Book Two-Book Three,3
+Liam,426 Kingston Rd.,32,312-533-1293,610671,Cat in The Hat,7567
 Olivia,885 North Swanson Dr.,12,312-682-7717,729245,None,7366
-Noah,29 Smith St.,312-288-5270,9,147441,None,4855
+Noah,29 Smith St.,19,312-288-5270,9,147441,None,4855
 Emma,205 East Roosevelt St.,54,312-877-3705,324641,None,4278
 Oliver,665 Longfellow St.,43,312-614-3290,278452,None,4690
 Charlotte,6 East Hillcrest St.,76,312-017-8086,110802,None,8367

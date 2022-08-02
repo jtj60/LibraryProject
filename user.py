@@ -34,15 +34,14 @@ class  User:
 				age = 0
 		self.age = age
 	def setPhoneNumber(self, num):
-		self.phone_number
+		self.phone_number = num
 	def setCardNumber(self, num):
 		self.card_number = num
 	def setCheckedOut(self, items):
-		if type(items) == list:
-			for item in items:
-				self.checked_out.append(item)
-		else:
-			self.checked_out.append(items)
+		if type(items) != list:	
+			items = items.split('-')
+		for item in items:
+				self.addCheckout(item)
 	def setPassword(self, pswd):
 		self.password = pswd
 	def getCheckedOut(self):
@@ -57,6 +56,16 @@ class  User:
 		if self.checked_out[0] == None:
 			return 0
 		return len(self.checked_out)
+	def addCheckout(self, item):
+		self.checked_out.append(item)
+		self.num_checked_out += 1
+	def checkIn(self, item):
+		if item in self.checked_out:
+			self.checked_out.remove(item)
+			self.num_checked_out -= 1
+			return True
+		else:
+			return False
 
 
 def main():
