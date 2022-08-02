@@ -16,10 +16,10 @@ class Interface():
 
     def start(self):
         # get user's library card number
-        tk.Label(self.root, text='Enter library card').pack()
+        tk.Label(self.root, text='Enter library card', font=("Helvetica", 22)).pack()
         ent = tk.Entry(self.root)
         ent.pack()
-        tk.Label(self.root, text='Enter password').pack()
+        tk.Label(self.root, text='Enter password', font=("Helvetica", 22)).pack()
         pswd = tk.Entry(self.root)
         pswd.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.authenticate(ent.get(), pswd.get())).pack()
@@ -63,7 +63,7 @@ class Interface():
     
     def showBooks(self):
         self.clear()
-        tk.Label(self.root, text='LIBRARY BOOKS:').pack()
+        tk.Label(self.root, text='LIBRARY BOOKS:', font=("Helvetica", 22)).pack()
         for book in self.library.getBooks():
             tk.Label(self.root, text=str(book), fg='red' if book.checked_out else 'green').pack()
         self.cont()
@@ -85,15 +85,15 @@ class Interface():
     def showUser(self):
         self.clear()
         user = self.user
-        tk.Label(self.root, text=user.name).pack()
-        tk.Label(self.root, text='Address: '+ user.address).pack()
-        tk.Label(self.root, text = 'Age: '+str(user.age))
-        tk.Label(self.root, text='Phone: '+user.phone_number).pack()
+        tk.Label(self.root, text=user.name, font=("Helvetica", 18)).pack()
+        tk.Label(self.root, text='Address: '+ user.address, font=("Helvetica", 18)).pack()
+        tk.Label(self.root, text = 'Age: '+str(user.age), font=("Helvetica", 18)).pack()
+        tk.Label(self.root, text='Phone: '+user.phone_number, font=("Helvetica", 18)).pack()
         self.show_checked_out(clear=False)
             
     def book_request(self):
         self.clear()
-        tk.Label(self.root, text='which book would you like to request?').pack()
+        tk.Label(self.root, text='Which book would you like to request?', font=("Helvetica", 18)).pack()
         self.showBooksSmall()
         book_input = tk.Entry(self.root)
         book_input.pack()
@@ -103,7 +103,7 @@ class Interface():
 
     def video_request(self):
         self.clear()
-        tk.Label(self.root, text='which video would you like to request?').pack()
+        tk.Label(self.root, text='Which video would you like to request?', font=("Helvetica", 18)).pack()
         self.showVideos()
         video_input = tk.Entry(self.root)
         video_input.pack()
@@ -112,7 +112,7 @@ class Interface():
 
     def audio_request(self):
         self.clear()
-        tk.Label(self.root, text='which audio would you like to request?').pack()
+        tk.Label(self.root, text='Which audio would you like to request?', font=("Helvetica", 18)).pack()
         self.showAudio()
         audio_input = tk.Entry(self.root)
         audio_input.pack()
