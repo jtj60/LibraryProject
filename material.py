@@ -14,9 +14,10 @@ class Material:
 		self.setRenewed(renewed)
 		self.setReturned(returned)
 	def setCheckedOut(self, checked_out):
-		checked_out = checked_out.lower()
+		checked_out = str(checked_out).lower()
 		if checked_out == 'true' or checked_out == "yes":
 			self.checked_out = True
+		
 	def setRenewed(self, renewed):
 		self.renewed = renewed
 	def setReturned(self, returned):
@@ -71,7 +72,10 @@ class Book(Material):
 	def checkout(self):
 		super().checkout(self.rental_time)
 	def __str__(self):
-		return f'Title: {self.title} Author: {self.author} Genre: {self.genre} Rating: {self.rating} Available: {not self.checked_out}'
+		string = f'Title: {self.title} Author: {self.author} Genre: {self.genre} Rating: {self.rating} Available: {str(not self.checked_out)}'
+		if self.due_date != None:
+			string += ' ' + str(self.due_date) + ' days'
+		return string
 	
 class Video(Material):
 	rental_time = 14

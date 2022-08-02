@@ -117,7 +117,6 @@ class Library():
     # Helper functions to check material statuses 
     def check_book_status(self, book):
         if book.checked_out and book.renewed:
-            print(book.checked_out())
             return False
         if book.reference == 'yes':
             return False
@@ -171,7 +170,7 @@ class Library():
         book = self.get_book(book)
         if book and self.check_book_status(book):
             if self.check_user_status(user):
-                self.update_user_checked_out_materials(user, book.title)
+                self.update_user_checked_out_materials(user, book)
                 return True
             return False
         return False
@@ -195,8 +194,9 @@ class Library():
 
 
     # updates user's checked out materials
-    def update_user_checked_out_materials(self, user, name):
-        pass
+    def update_user_checked_out_materials(self, user, material):
+        user.addCheckout(material)
+        material.checkout()
 
 
 

@@ -5,7 +5,7 @@ import tkinter as tk
 class Interface():
     root = tk.Tk()
     root.title('Library App')
-    root.geometry('750x400')
+    root.geometry('800x450')
     library = None
     
     def __init__(self):
@@ -64,9 +64,14 @@ class Interface():
     def showBooks(self):
         self.clear()
         tk.Label(self.root, text='LIBRARY BOOKS:').pack()
-        for book in self.library.getBooks():
+        for book in self.library.books:
             tk.Label(self.root, text=str(book)).pack()
         self.cont()
+    def showBooksSmall(self):
+        books = self.library.books
+        names = [book.title for book in books if not book.checked_out]
+        for name in names:
+            tk.Label(self.root, text=name).pack()
     def showUser(self):
         self.clear()
         user = self.user
@@ -79,6 +84,7 @@ class Interface():
     def book_request(self):
         self.clear()
         tk.Label(self.root, text='which book would you like to request?').pack()
+        self.showBooksSmall()
         book_input = tk.Entry(self.root)
         book_input.pack()
         #enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.printt(book_input.get(), self.user))).pack()
