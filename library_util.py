@@ -1,7 +1,19 @@
 import csv
+from user import User
 
 
 class Utilities():
+    def getUsers(filename):
+        users = []
+        #fields = ['Name:',' Address:',' Age:', 'Phone Number:', 'Card Number:', 'Checked Out:', 'Items Amount:', 'Password:']
+        with open(filename) as f:
+            reader = csv.DictReader(f)
+            for u in reader:
+                user = User()
+                user.setUser(u['Name'],u['Address'],u['Age'],u['Phone-Number'],u['Card-Number'],u['Checked-Out'], u['Password'])
+                users.append(user)
+        return users
+
 
     def parse_user_list(filename):
         with open(filename) as f:
@@ -216,3 +228,5 @@ class Utilities():
 
             f.close()
         return
+
+Utilities.getUsers('user.csv')

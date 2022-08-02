@@ -1,4 +1,4 @@
-Name, Address, Age, Phone Number, Card Number, Checked Out, Items Amount
+Name,Address,Age,Phone-Number,Card-Number,Checked-Out,Password
 
 Jake, 123 Python Way, 24, 999-123-4567, 9123456789, 'Book One, Book Two, Book Three', 3
 Liam,426 Kingston Rd.,32,312-533-1293,610671,None,7567
