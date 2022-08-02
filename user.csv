@@ -3,7 +3,7 @@ Name,Address,Age,Phone-Number,Card-Number,Checked-Out,Password
 Jake, 123 Python Way,24,999-123-4567,9123456789, Book One-Book Two-Book Three,3
 Liam,426 Kingston Rd.,32,312-533-1293,610671,Cat in The Hat,7567
 Olivia,885 North Swanson Dr.,12,312-682-7717,729245,None,7366
-Noah,29 Smith St.,19,312-288-5270,9,147441,None,4855
+Noah,29 Smith St.,19,312-288-5270,147441,None,4855
 Emma,205 East Roosevelt St.,54,312-877-3705,324641,None,4278
 Oliver,665 Longfellow St.,43,312-614-3290,278452,None,4690
 Charlotte,6 East Hillcrest St.,76,312-017-8086,110802,None,8367
@@ -21,4 +21,4 @@ Henry,9534 Coffee St.,27,312-422-3533,818731,None,2829
 Evelyn,44 Central Street,43,312-452-7920,596527,None,9381
 Theodore,9486 Lakeshore Ave,93,312-851-6909,271981,None,5804
 Harper,13 S. Sherman Dr.,71,312-910-3324,582940,None,9797
-Alex,Home,22,911-111-1100,123,Title: Moby Dick Author:  Herman Melville Genre:  Adventure Fiction Rating: Grade 5 Available: False-Title: Harry Potter Author:  J.K. Rowling Genre:  Young Adult Fantasy Fiction Rating:  Grade 5 Available: False,secret
+Alex,Chuck-E-Cheese's,22,512-101-1100,123,Title: Moby Dick Author:  Herman Melville Genre:  Adventure Fiction Rating: Grade 5 Available: False-Title: Harry Potter Author:  J.K. Rowling Genre:  Young Adult Fantasy Fiction Rating:  Grade 5 Available: False,secret
