@@ -70,7 +70,7 @@ class Library():
 
     def get_audio(self, name):
         for audio in self.audio:
-            if audio['name'] == name:
+            if audio.title == name:
                 return audio
         return None
 
@@ -125,10 +125,8 @@ class Library():
 
 
     # Helper functions to check material statuses 
-    def check_book_status(self, book):
-        if book.checked_out and book.renewed:
-            return False
-        if book.reference == 'yes':
+    def check_material_status(self, mat):
+        if mat.checked_out and mat.renewed:
             return False
         else:
             return True
@@ -178,15 +176,16 @@ class Library():
     # functions for users to check out materials
     def checkout_book(self, book, user):
         book = self.get_book(book)
-        if book and self.check_book_status(book):
+        if book and self.check_material_status(book):
             if self.check_user_status(user):
                 self.update_user_checked_out_materials(user, book)
                 return True
             return False
         return False
     
-    def checkout_audio(self):
-        if self.check_audio_status(book):
+    def checkout_audio(self, audio, user):
+        audio = self.get_audio(audio)
+        if audio and self.check_material_status(audio):
             if self.check_user_status(user):
                 self.update_user_checked_out_materials(user, audio['name'])
                 return True

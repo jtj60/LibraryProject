@@ -74,10 +74,12 @@ class Interface():
             tk.Label(self.root, text=name).pack()
     def showVideos(self):
         videos = self.library.getVideos()
+        avail = [video for video in videos if not video.checked_out]
         for video in videos:
             tk.Label(self.root, text=str(video)).pack()
     def showAudio(self):
         audios = self.library.getAudio()
+        avail = [audio for audio in audios if not audio.checked_out]
         for audio in audios:
             tk.Label(self.root, text=str(audio)).pack()
     def showUser(self):
