@@ -1,6 +1,6 @@
 import csv
 from user import User
-from material import Book
+from material import Book, Video, Audio
 
 
 class Utilities():
@@ -22,6 +22,14 @@ class Utilities():
                 book = Book(b['Title'], b['Author'], b['Genre'], b['Rating'], b['Best-Seller'], b['Checked-Out'], b['Renewed'], b['Reference'], b['Returned'])
                 books.append(book)
         return books
+    def getVideos(filename):
+        videos =[]
+        with open(filename) as f:
+            reader = csv.DictReader(f)
+            for v in reader:
+                video = Video(v['Title'], v['Rating'], v['Duration'], v['Checked-Out'], v['Renewed'], v['Returned'])
+                videos.append(video)
+        return videos
 
 
     def parse_user_list(filename):

@@ -17,6 +17,7 @@ class Library():
         self.videos = []
         self.setUsers()
         self.setBooks()
+        self.setVideos()
 
     def setUsers(self):
         self.users = Utilities.getUsers('user.csv')
@@ -24,6 +25,10 @@ class Library():
         self.books = Utilities.getBooks('books.csv')
     def getBooks(self):
         return self.books
+    def setVideos(self):
+        self.videos = Utilities.getVideos('video.csv')
+    def getVideos(self):
+        return self.videos
 
     #not really something to implement in the interface, more to just showcase what everything will look like
     def add_user(self, name):
