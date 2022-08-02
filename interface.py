@@ -5,7 +5,7 @@ import tkinter as tk
 class Interface():
     root = tk.Tk()
     root.title('Library App')
-    root.geometry('700x400')
+    root.geometry('750x400')
     library = None
     
     def __init__(self):

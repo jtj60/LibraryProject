@@ -68,6 +68,8 @@ class Book(Material):
 			self.best_seller = False
 	def checkout(self):
 		super().checkout(self.rental_time)
+	def __str__(self):
+		return f'Title: {self.title} Author: {self.author} Genre: {self.genre} Rating: {self.rating} Available: {not self.checked_out}'
 	
 class Video(Material):
 	rental_time = 14
