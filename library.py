@@ -17,9 +17,6 @@ class Library():
         self.videos = []
         self.setUsers()
 
-        for u in self.users:
-            print(u)
-
     def setUsers(self):
         self.users = Utilities.getUsers('user.csv')
 
