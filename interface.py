@@ -45,7 +45,7 @@ class Interface():
 
     def main_menu(self):
         self.clear()
-        tk.Label(self.root, text=f'Welcome, {self.user.name}!').pack(ipadx=10, ipady=10)
+        tk.Label(self.root, text=f'Welcome, {self.user.name}!', font=("Helvetica", 26), fg='blue').pack(ipadx=10, ipady=10)
         #profile
         profile_but = tk.Button(self.root, text='PROFILE', command=self.showUser).pack(ipadx=10, ipady=10)
         #see books
@@ -122,7 +122,7 @@ class Interface():
     def show_checked_out(self, clear=True):
         if clear:
             self.clear()
-        tk.Label(self.root, text='CURRENT CHECKED OUT ITEMS:').pack()
+        tk.Label(self.root, text='CURRENT CHECKED OUT ITEMS:', fg = 'green').pack()
         if not self.user:
             request_ack(0)
         else:
