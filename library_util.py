@@ -31,6 +31,15 @@ class Utilities():
                 videos.append(video)
         return videos
 
+    def getAudios(filename):
+        audios =[]
+        with open(filename) as f:
+            reader = csv.DictReader(f)
+            for a in reader:
+                audio = Audio(a['Title'],a['Genre'], a['Rating'], a['Duration'], a['Checked-Out'], a['Renewed'], a['Returned'])
+                audios.append(audio)
+        return audios
+
 
     def parse_user_list(filename):
         with open(filename) as f:

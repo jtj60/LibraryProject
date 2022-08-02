@@ -95,7 +95,7 @@ class Audio(Video):
 		super().__init__(title, rating, duration, checked_out, renewed, returned)
 		self.genre = None
 		self.setAudio(genre)
-	def setAudio(genre):
+	def setAudio(self, genre):
 		self.genre = genre
 
 def main():

@@ -76,6 +76,10 @@ class Interface():
         videos = self.library.getVideos()
         for video in videos:
             tk.Label(self.root, text=str(video)).pack()
+    def showAudio(self):
+        audios = self.library.getAudio()
+        for audio in audios:
+            tk.Label(self.root, text=str(audio)).pack()
     def showUser(self):
         self.clear()
         user = self.user
@@ -107,6 +111,7 @@ class Interface():
     def audio_request(self):
         self.clear()
         tk.Label(self.root, text='which audio would you like to request?').pack()
+        self.showAudio()
         audio_input = tk.Entry(self.root)
         audio_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_audio(audio_input.get(), self.user))).pack()
