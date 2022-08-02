@@ -74,7 +74,7 @@ class Book(Material):
 	def __str__(self):
 		string = f'Title: {self.title} Author: {self.author} Genre: {self.genre} Rating: {self.rating} Available: {str(not self.checked_out)}'
 		if self.due_date != None:
-			string += ' ' + str(self.due_date) + ' days'
+			string += ' Time: ' + str(self.due_date) + ' days'
 		return string
 	
 class Video(Material):

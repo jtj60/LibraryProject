@@ -64,14 +64,18 @@ class Interface():
     def showBooks(self):
         self.clear()
         tk.Label(self.root, text='LIBRARY BOOKS:').pack()
-        for book in self.library.books:
+        for book in self.library.getBooks():
             tk.Label(self.root, text=str(book)).pack()
         self.cont()
     def showBooksSmall(self):
-        books = self.library.books
+        books = self.library.getBooks()
         names = [book.title for book in books if not book.checked_out]
         for name in names:
             tk.Label(self.root, text=name).pack()
+    def showVideos(self):
+        videos = self.library.getVideos()
+        for video in videos:
+            tk.Label(self.root, text=str(video)).pack()
     def showUser(self):
         self.clear()
         user = self.user
@@ -94,6 +98,7 @@ class Interface():
     def video_request(self):
         self.clear()
         tk.Label(self.root, text='which video would you like to request?').pack()
+        self.showVideos()
         video_input = tk.Entry(self.root)
         video_input.pack()
         enter_button = tk.Button(self.root, text='ENTER', width=15, command=lambda:self.request_ack(self.library.checkout_video(video_input.get(), self.user))).pack()
