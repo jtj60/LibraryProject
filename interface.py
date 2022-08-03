@@ -33,6 +33,7 @@ class Interface():
         if self.library.log_in(user, pswd):
             self.user = user
             self.main_menu()
+            print('New login: ' + user.name)
 
         else:
             print('Credientials failed to authenticate.')
